@@ -1,32 +1,19 @@
-import { ChangeEventHandler } from "react";
-
 interface CheckboxProps {
   label: string;
-  className?: string;
-  value: string;
   checked: boolean;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onChange: (checked: boolean) => void;
 }
 
-export function Checkbox({
-  label,
-  className = "",
-  value,
-  onChange,
-  checked = false,
-  ...rest
-}: CheckboxProps) {
+export const Checkbox = ({ label, checked, onChange }: CheckboxProps) => {
   return (
-    <label className={`inline-flex items-center ${className}`}>
+    <label className="flex items-center space-x-2">
       <input
         type="checkbox"
-        className="form-checkbox h-5 w-5 text-blue-600"
         checked={checked}
-        value={value}
-        onChange={onChange}
-        {...rest}
+        onChange={(e) => onChange(e.target.checked)}
+        className="text-blue-600 rounded border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600"
       />
-      <span className="ml-2 text-gray-700">{label}</span>
+      <span>{label}</span>
     </label>
   );
-}
+};
