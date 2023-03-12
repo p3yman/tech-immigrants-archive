@@ -1,10 +1,14 @@
+import { useState } from "react";
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Header } from "@/components/header/Header";
+import { Filters } from "@/components/filters/Filters";
+import { Videos } from "@/components/videos/Videos";
+
+import { videosData } from "@/data/videos";
 
 export default function Home() {
+  const [filters, setFilters] = useState({});
   return (
     <>
       <Head>
@@ -13,7 +17,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-red-200">Hello</main>
+      <Header />
+      <main className="container flex gap-8 min-h-screen">
+        <Filters filters={filters} onChange={() => setFilters({})} />
+        <Videos videos={videosData} />
+      </main>
     </>
   );
 }
