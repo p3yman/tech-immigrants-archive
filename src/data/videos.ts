@@ -25,7 +25,7 @@ export const videosData: VideoItem[] = [
     thumbnail:
       "https://i.ytimg.com/vi/6gGBvPARl4M/maxresdefault.jpg?v=63fa65ba",
     name: "Ario",
-    countries: ["nl"],
+    countries: ["nl", "tr"],
     position: "Senior Software Engineer",
     tags: ["Java"],
     youtube:

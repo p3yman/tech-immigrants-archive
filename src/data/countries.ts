@@ -1,16 +1,20 @@
-export const countries = {
+export const countriesList = {
   ir: {
-    label_fa: "ایران",
-    label_en: "Iran",
+    label: "Iran",
+    flag: "🇮🇷",
   },
   nl: {
-    label_fa: "هلند",
-    label_en: "Netherlands",
+    label: "Netherlands",
+    flag: "🇳🇱",
   },
   de: {
-    label_fa: "آلمان",
-    label_en: "Germany",
+    label: "Germany",
+    flag: "🇩🇪",
+  },
+  tr: {
+    label: "Turkey",
+    flag: "🇹🇷",
   },
 };
 
-export type Country = keyof typeof countries;
+export type Country = keyof typeof countriesList;
