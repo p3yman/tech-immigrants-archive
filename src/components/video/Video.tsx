@@ -7,6 +7,7 @@ interface VideoProps {
 
 const Video = ({ data }: VideoProps) => {
   const { thumbnail, name, position, countries, tags, audio, youtube } = data;
+  const countryItems = countriesList.filter((c) => countries.includes(c.code));
   return (
     <div className="max-w-sm rounded overflow-hidden shadow bg-white">
       <img className="w-full" src={thumbnail} alt={name} />
@@ -14,12 +15,12 @@ const Video = ({ data }: VideoProps) => {
         <div className="font-bold text-xl mb-1">{name}</div>
         <p className="text-gray-500 text-base mb-3">{position}</p>
         <div className="flex gap-1 mb-4">
-          {countries.map((country) => (
+          {countryItems.map((country) => (
             <span
-              key={country}
+              key={country.code}
               className="text-sm font-semibold text-gray-700 mr-2"
             >
-              {countriesList[country].flag} {countriesList[country].label}
+              {country.flag} {country.label}
             </span>
           ))}
         </div>

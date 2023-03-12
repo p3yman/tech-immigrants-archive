@@ -3,7 +3,7 @@ import Video from "../video/Video";
 
 interface VideosProps {
   videos: VideoItem[];
-  className: string;
+  className?: string;
 }
 
 export const Videos = ({ videos }: VideosProps) => {

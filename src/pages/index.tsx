@@ -6,9 +6,43 @@ import { Filters } from "@/components/filters/Filters";
 import { Videos } from "@/components/videos/Videos";
 
 import { videosData } from "@/data/videos";
+import { countriesList } from "@/data/countries";
+import { positionsList } from "@/data/positions";
+import { tagsList } from "@/data/tags";
+
+const createDefaultFilters = () => {
+  const countries: { [key: string]: boolean } = Object.keys(
+    countriesList
+  ).reduce<{ [key: string]: boolean }>((obj, c: string) => {
+    obj[c] = false;
+    return obj;
+  }, {});
+
+  const positions: { [key: string]: boolean } = positionsList.reduce<{
+    [key: string]: boolean;
+  }>((obj, c: string) => {
+    obj[c] = false;
+    return obj;
+  }, {});
+
+  const tags: { [key: string]: boolean } = tagsList.reduce<{
+    [key: string]: boolean;
+  }>((obj, c: string) => {
+    obj[c] = false;
+    return obj;
+  }, {});
+
+  return {
+    countries,
+    positions,
+    tags,
+    with_audio: false,
+  };
+};
 
 export default function Home() {
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState(createDefaultFilters());
+
   return (
     <>
       <Head>
