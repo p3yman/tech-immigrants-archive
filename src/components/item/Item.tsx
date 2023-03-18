@@ -34,7 +34,7 @@ export const Item = ({ data }: ItemProps) => {
           </span>
         )}
       </div>
-      <div className="p-5">
+      <div className="p-5 min-h-[170px]">
         <div className="font-bold text-xl mb-1">{name}</div>
         <p className="text-gray-500 text-base mb-3">{position}</p>
         <div className="flex gap-1 mb-4">

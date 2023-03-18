@@ -19,7 +19,7 @@ export const videos: VideoItem[] = [
     name: "Hadi Mashidi",
     countries: ["tr", "ca"],
     position: "Principal Software Engineer",
-    tags: ["Go"],
+    tags: [],
     youtube: "https://www.youtube.com/watch?v=3kJG3Q6bQTA",
     audio: null,
     publish_date: "2023-02-23T20:36:58.440Z",

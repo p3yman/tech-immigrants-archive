@@ -10,9 +10,6 @@ module.exports = {
         telegram: '#0088cc',
       }
     },
-    container: {
-      // center: true,
-    },
   },
   plugins: [
     require('@tailwindcss/forms'),
