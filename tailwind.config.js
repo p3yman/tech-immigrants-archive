@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        youtube: '#CD201F',
+        telegram: '#0088cc',
+      }
+    },
     container: {
       // center: true,
     },

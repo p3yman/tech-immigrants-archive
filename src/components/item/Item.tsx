@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { countries as countriesList } from "@/data/countries";
 import { VideoItem } from "@/types";
 import dayjs from "dayjs";
@@ -61,8 +62,9 @@ export const Item = ({ data }: ItemProps) => {
         <a
           href={youtube}
           target="_blank"
-          className={`border border-red-500 bg-red-500 hover:bg-red-600 transition-colors text-white text-gray text-sm py-2 px-4 rounded`}
+          className={`flex items-center gap-2 bg-youtube hover:bg-red-600 transition-colors text-white text-gray text-sm py-2 px-4 rounded`}
         >
+          <Image src="/youtube.svg" alt="YouTube" width="24" height="24" />
           Watch on YouTube
         </a>
         {audio && (

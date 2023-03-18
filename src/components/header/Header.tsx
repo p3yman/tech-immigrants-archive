@@ -9,20 +9,20 @@ export const Header = () => {
       </div>
       <div className="flex gap-2">
         <a
-          href={`https://www.youtube.com/channel/test`}
+          href="https://www.youtube.com/@TechImmigrants"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded text-sm sm:text-base"
+          className="bg-youtube hover:bg-red-700 text-white py-2 px-4 rounded text-sm sm:text-base"
         >
           <span className="hidden sm:inline-block">Visit</span> YouTube Channel
         </a>
         <a
-          href={`https://t.me/telegram`}
+          href="https://t.me/techimmigrants"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded text-sm sm:text-base"
         >
-          <span className="hidden sm:inline-block">Join</span> Telegram Channel
+          <span className="hidden sm:inline-block">Join</span> Telegram Group
         </a>
       </div>
     </header>
