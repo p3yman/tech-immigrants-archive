@@ -1,11 +1,11 @@
 import { VideoItem } from "@/data/videos";
 import { countriesList } from "@/data/countries";
 
-interface VideoProps {
+interface ItemProps {
   data: VideoItem;
 }
 
-const Video = ({ data }: VideoProps) => {
+export const Item = ({ data }: ItemProps) => {
   const { thumbnail, name, position, countries, tags, audio, youtube } = data;
   const countryItems = countriesList.filter((c) => countries.includes(c.code));
   return (
@@ -56,5 +56,3 @@ const Video = ({ data }: VideoProps) => {
     </div>
   );
 };
-
-export default Video;

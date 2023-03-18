@@ -1,25 +1,4 @@
-import { Country } from "./countries";
-import { Position } from "./positions";
-
-interface Links {
-  email?: string;
-  website?: string;
-  twitter?: string;
-  youtube?: string;
-  linkedin?: string;
-}
-
-export interface VideoItem {
-  thumbnail: string;
-  name: string;
-  countries: Country[];
-  companies?: string[];
-  position: Position;
-  tags: string[];
-  youtube: string;
-  audio?: string;
-  links?: Links;
-}
+import { VideoItem } from "@/types";
 
 export const videosData: VideoItem[] = [
   {

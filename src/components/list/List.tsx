@@ -1,5 +1,5 @@
 import { VideoItem } from "@/data/videos";
-import Item from "../item/Item";
+import { Item } from "../item/Item";
 
 interface VideosProps {
   list: VideoItem[];
