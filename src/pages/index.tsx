@@ -77,7 +77,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="flex min-h-screen pt-24 flex-col sm:flex-row">
+      <main className="flex min-h-screen pt-36 sm:pt-24 flex-col sm:flex-row">
         <Filters
           filters={{ countries, positions, tags, withAudio }}
           onChange={onChangeFilter}
