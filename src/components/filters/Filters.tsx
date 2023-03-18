@@ -6,12 +6,14 @@ import { Tag } from "../form/tag/Tag";
 
 interface FiltersProps {
   filters: {
-    [key: string]: { [key: string]: boolean };
+    countries: string[];
+    positions: string[];
+    tags: string[];
+    withAudio: boolean;
   };
   onChange: (
-    category: "countries" | "positions" | "tags" | "other",
-    key: string,
-    value: boolean
+    category: "country" | "position" | "tag" | "withAudio",
+    key?: string
   ) => void;
 }
 
@@ -27,10 +29,8 @@ export const Filters = ({ filters, onChange }: FiltersProps) => {
                 label={`${flag} ${label}`}
                 key={code}
                 value={code}
-                checked={filters.countries[code]}
-                onChange={() =>
-                  onChange("countries", code, !filters.countries[code])
-                }
+                checked={filters.countries.includes(code)}
+                onChange={() => onChange("country", code)}
               />
             );
           })}
@@ -46,10 +46,8 @@ export const Filters = ({ filters, onChange }: FiltersProps) => {
                 label={position}
                 value={position}
                 key={position}
-                checked={!!filters.positions[position]}
-                onChange={() =>
-                  onChange("positions", position, !filters.positions[position])
-                }
+                checked={filters.positions.includes(position)}
+                onChange={() => onChange("position", position)}
               />
             );
           })}
@@ -65,8 +63,8 @@ export const Filters = ({ filters, onChange }: FiltersProps) => {
                 label={tag}
                 value={tag}
                 key={tag}
-                checked={!!filters.tags[tag]}
-                onChange={() => onChange("tags", tag, !filters.tags[tag])}
+                checked={filters.tags.includes(tag)}
+                onChange={() => onChange("tag", tag)}
               />
             );
           })}
@@ -77,10 +75,8 @@ export const Filters = ({ filters, onChange }: FiltersProps) => {
         <Checkbox
           label="With audio"
           value="with_audio"
-          checked={!!filters.other.with_audio}
-          onChange={() =>
-            onChange("other", "with_audio", !filters.other.with_audio)
-          }
+          checked={filters.withAudio}
+          onChange={() => onChange("withAudio")}
         />
       </div>
     </aside>

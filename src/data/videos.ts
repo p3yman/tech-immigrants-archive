@@ -1,6 +1,6 @@
 import { VideoItem } from "@/types";
 
-export const videosData: VideoItem[] = [
+export const videos: VideoItem[] = [
   {
     thumbnail:
       "https://i.ytimg.com/vi/6gGBvPARl4M/maxresdefault.jpg?v=63fa65ba",
@@ -10,5 +10,6 @@ export const videosData: VideoItem[] = [
     tags: ["Java"],
     youtube:
       "https://www.youtube.com/watch?v=6gGBvPARl4M&ab_channel=TechImmigrants",
+    audio: null,
   },
 ];

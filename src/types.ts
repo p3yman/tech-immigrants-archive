@@ -17,6 +17,6 @@ export interface VideoItem {
   position: Position;
   tags: string[];
   youtube: string;
-  audio?: string;
+  audio: string | null;
   links?: Links;
 }
