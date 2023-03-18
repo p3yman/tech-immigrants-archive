@@ -1,4 +1,4 @@
-export const countriesList = [
+export const countries = [
   {
     code: "ir",
     label: "Iran",
@@ -21,4 +21,4 @@ export const countriesList = [
   },
 ] as const;
 
-export type Country = typeof countriesList[number]["code"];
+export type Country = typeof countries[number]["code"];

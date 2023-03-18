@@ -1,4 +1,4 @@
-export const tagsList = [
+export const tags = [
   "JavaScript",
   "React",
   "Vue",
@@ -7,4 +7,4 @@ export const tagsList = [
   ".Net",
 ] as const;
 
-export type Tag = typeof tagsList[number];
+export type Tag = typeof tags[number];

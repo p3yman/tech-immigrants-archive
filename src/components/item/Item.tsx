@@ -1,5 +1,5 @@
-import { VideoItem } from "@/data/videos";
-import { countriesList } from "@/data/countries";
+import { countries as countriesList } from "@/data/countries";
+import { VideoItem } from "@/types";
 
 interface ItemProps {
   data: VideoItem;

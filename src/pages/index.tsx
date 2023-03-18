@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 
 import { Header } from "@/components/header/Header";
@@ -8,6 +8,7 @@ import { List } from "@/components/list/List";
 import { videos } from "@/data/videos";
 import { useToggleArray } from "@/hooks/useToggleArray";
 import { useToggleBoolean } from "@/hooks/useToggleBoolean";
+import { Country } from "@/data/countries";
 
 export default function Home() {
   const [filteredVideos, setFilteredVideos] = useState(videos);
@@ -25,26 +26,28 @@ export default function Home() {
     };
   }, [toggleCountry, togglePosition, toggleTag, toggleWithAudio]);
 
-  useEffect(() => {
-    const filterVideos = () => {
-      const filtered = videos.filter((video) => {
-        const hasPosition =
-          positions.length === 0 || positions.includes(video.position);
-        const hasTag =
-          tags.length === 0 || tags.some((tag) => video.tags.includes(tag));
-        const hasCountry =
-          countries.length === 0 ||
-          countries.some((country) => video.countries.includes(country));
-        const hasAudio = !withAudio || (withAudio && video.audio !== null);
+  const filterVideos = useCallback(() => {
+    const filtered = videos.filter((video) => {
+      const hasPosition =
+        positions.length === 0 || positions.includes(video.position);
+      const hasTag =
+        tags.length === 0 || tags.some((tag) => video.tags.includes(tag));
+      const hasCountry =
+        countries.length === 0 ||
+        countries.some((country) =>
+          video.countries.includes(country as Country)
+        );
+      const hasAudio = !withAudio || (withAudio && video.audio !== null);
 
-        return hasPosition && hasTag && hasCountry && hasAudio;
-      });
+      return hasPosition && hasTag && hasCountry && hasAudio;
+    });
 
-      setFilteredVideos(filtered);
-    };
-
-    filterVideos();
+    setFilteredVideos(filtered);
   }, [positions, tags, countries, withAudio]);
+
+  useEffect(() => {
+    filterVideos();
+  }, [filterVideos]);
 
   const onChangeFilter = (
     type: "country" | "position" | "tag" | "withAudio",
