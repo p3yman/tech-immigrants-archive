@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 
 import { Header } from "@/components/header/Header";
-import { Filters } from "@/components/filters/Filters";
+import { categories, Filters } from "@/components/filters/Filters";
 import { List } from "@/components/list/List";
 
 import { videos } from "@/data/videos";
@@ -12,9 +12,9 @@ import { Country } from "@/data/countries";
 
 export default function Home() {
   const [filteredVideos, setFilteredVideos] = useState(videos);
-  const [countries, toggleCountry] = useToggleArray([]);
-  const [positions, togglePosition] = useToggleArray([]);
-  const [tags, toggleTag] = useToggleArray([]);
+  const [countries, toggleCountry, clearCountries] = useToggleArray([]);
+  const [positions, togglePosition, clearPositions] = useToggleArray([]);
+  const [tags, toggleTag, clearTags] = useToggleArray([]);
   const [withAudio, toggleWithAudio] = useToggleBoolean(false);
 
   const arrayToggles = useMemo(() => {
@@ -25,6 +25,14 @@ export default function Home() {
       withAudio: toggleWithAudio,
     };
   }, [toggleCountry, togglePosition, toggleTag, toggleWithAudio]);
+
+  const arrayClearToggles = useMemo(() => {
+    return {
+      country: clearCountries,
+      position: clearPositions,
+      tag: clearTags,
+    };
+  }, [clearCountries, clearPositions, clearTags]);
 
   const filterVideos = useCallback(() => {
     const filtered = videos.filter((video) => {
@@ -49,11 +57,12 @@ export default function Home() {
     filterVideos();
   }, [filterVideos]);
 
-  const onChangeFilter = (
-    type: "country" | "position" | "tag" | "withAudio",
-    key?: string
-  ) => {
+  const onChangeFilter = (type: categories, key?: string) => {
     type !== "withAudio" && key ? arrayToggles[type](key) : toggleWithAudio();
+  };
+
+  const onClearFilter = (type: categories) => {
+    type !== "withAudio" && arrayClearToggles[type]();
   };
 
   return (
@@ -72,6 +81,7 @@ export default function Home() {
         <Filters
           filters={{ countries, positions, tags, withAudio }}
           onChange={onChangeFilter}
+          onClear={onClearFilter}
         />
         <List list={filteredVideos} />
       </main>

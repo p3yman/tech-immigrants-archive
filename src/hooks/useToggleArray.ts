@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export const useToggleArray = (
   initialArray: string[] = []
-): [string[], (key: string) => void] => {
+): [string[], (key: string) => void, () => void] => {
   const [array, setArray] = useState(initialArray);
 
   const toggleItem = (key: string) => {
@@ -18,5 +18,9 @@ export const useToggleArray = (
     });
   };
 
-  return [array, toggleItem];
+  const clearArray = () => {
+    setArray([]);
+  };
+
+  return [array, toggleItem, clearArray];
 };

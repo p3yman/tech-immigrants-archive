@@ -1,8 +1,11 @@
 import { countries } from "@/data/countries";
 import { positions } from "@/data/positions";
 import { tags } from "@/data/tags";
+import FilterTitle from "../filter-title/FilterTitle";
 import { Checkbox } from "../form/checkbox/Checkbox";
 import { Tag } from "../form/tag/Tag";
+
+export type categories = "country" | "position" | "tag" | "withAudio";
 
 interface FiltersProps {
   filters: {
@@ -11,17 +14,19 @@ interface FiltersProps {
     tags: string[];
     withAudio: boolean;
   };
-  onChange: (
-    category: "country" | "position" | "tag" | "withAudio",
-    key?: string
-  ) => void;
+  onChange: (category: categories, key?: string) => void;
+  onClear: (category: categories) => void;
 }
 
-export const Filters = ({ filters, onChange }: FiltersProps) => {
+export const Filters = ({ filters, onChange, onClear }: FiltersProps) => {
   return (
     <aside className="border-r p-5 w-1/4 min-h-screen bg-gray-50 pt-32 pb-10 flex flex-col gap-6">
       <div>
-        <h3 className="font-medium text-sm text-slate-500 mb-2">Country</h3>
+        <FilterTitle
+          title="Country"
+          onClear={() => onClear("country")}
+          showClear={filters.countries.length > 0}
+        />
         <div className="flex flex-col gap-1">
           {countries.map(({ code, label, flag }) => {
             return (
@@ -38,7 +43,11 @@ export const Filters = ({ filters, onChange }: FiltersProps) => {
       </div>
 
       <div>
-        <h3 className="font-medium text-sm text-slate-500 mb-2">Position</h3>
+        <FilterTitle
+          title="Position"
+          onClear={() => onClear("position")}
+          showClear={filters.positions.length > 0}
+        />
         <div className="flex flex-col gap-1">
           {positions.map((position) => {
             return (
@@ -55,7 +64,11 @@ export const Filters = ({ filters, onChange }: FiltersProps) => {
       </div>
 
       <div>
-        <h3 className="font-medium text-sm text-slate-500 mb-2">Tags</h3>
+        <FilterTitle
+          title="Tags"
+          onClear={() => onClear("tag")}
+          showClear={filters.tags.length > 0}
+        />
         <div className="flex flex-wrap gap-1">
           {tags.map((tag) => {
             return (
