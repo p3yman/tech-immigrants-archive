@@ -11,6 +11,7 @@ import { useToggleBoolean } from "@/hooks/useToggleBoolean";
 import { Country } from "@/data/countries";
 
 export default function Home() {
+  const [search, setSearch] = useState("");
   const [filteredVideos, setFilteredVideos] = useState(videos);
   const [countries, toggleCountry, clearCountries] = useToggleArray([]);
   const [positions, togglePosition, clearPositions] = useToggleArray([]);
@@ -37,6 +38,8 @@ export default function Home() {
   const filterVideos = useCallback(() => {
     const filtered = videos
       .filter((video) => {
+        const matchesQuery =
+          !search || video.name.toLowerCase().includes(search.toLowerCase());
         const hasPosition =
           positions.length === 0 || positions.includes(video.position);
         const hasTag =
@@ -48,7 +51,7 @@ export default function Home() {
           );
         const hasAudio = !withAudio || (withAudio && video.audio !== null);
 
-        return hasPosition && hasTag && hasCountry && hasAudio;
+        return matchesQuery && hasPosition && hasTag && hasCountry && hasAudio;
       })
       .sort((a, b) => {
         const dateA = new Date(a.publish_date);
@@ -58,18 +61,34 @@ export default function Home() {
       });
 
     setFilteredVideos(filtered);
-  }, [positions, tags, countries, withAudio]);
+  }, [search, positions, tags, countries, withAudio]);
 
   useEffect(() => {
     filterVideos();
   }, [filterVideos]);
 
-  const onChangeFilter = (type: categories, key?: string) => {
-    type !== "withAudio" && key ? arrayToggles[type](key) : toggleWithAudio();
+  const onChangeFilter = (type: categories, value?: string) => {
+    if (type === "withAudio") {
+      toggleWithAudio();
+    }
+
+    if (type === "search") {
+      setSearch(value || "");
+    } else if (value) {
+      arrayToggles[type](value);
+    }
   };
 
   const onClearFilter = (type: categories) => {
-    type !== "withAudio" && arrayClearToggles[type]();
+    if (type === "withAudio") {
+      return;
+    }
+
+    if (type === "search") {
+      setSearch("");
+    } else {
+      arrayClearToggles[type]();
+    }
   };
 
   return (
@@ -86,7 +105,7 @@ export default function Home() {
       <Header />
       <main className="flex min-h-screen pt-36 sm:pt-24 flex-col sm:flex-row">
         <Filters
-          filters={{ countries, positions, tags, withAudio }}
+          filters={{ search, countries, positions, tags, withAudio }}
           onChange={onChangeFilter}
           onClear={onClearFilter}
         />

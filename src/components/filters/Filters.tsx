@@ -3,12 +3,19 @@ import { positions } from "@/data/positions";
 import { tags } from "@/data/tags";
 import FilterTitle from "../filter-title/FilterTitle";
 import { Checkbox } from "../form/checkbox/Checkbox";
+import { Input } from "../form/input/Input";
 import { Tag } from "../form/tag/Tag";
 
-export type categories = "country" | "position" | "tag" | "withAudio";
+export type categories =
+  | "search"
+  | "country"
+  | "position"
+  | "tag"
+  | "withAudio";
 
 interface FiltersProps {
   filters: {
+    search: string;
     countries: string[];
     positions: string[];
     tags: string[];
@@ -21,6 +28,17 @@ interface FiltersProps {
 export const Filters = ({ filters, onChange, onClear }: FiltersProps) => {
   return (
     <aside className="border-b sm:border-r sm:border-b-0 p-5 sm:min-h-full bg-gray-50 pb-10 flex flex-col gap-6">
+      <div>
+        <FilterTitle
+          title="Search by name"
+          onClear={() => onClear("search")}
+          showClear={!!filters.search}
+        />
+        <Input
+          value={filters.search}
+          onChange={(value) => onChange("search", value)}
+        />
+      </div>
       <div>
         <FilterTitle
           title="Country"
