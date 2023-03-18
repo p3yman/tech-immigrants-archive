@@ -9,7 +9,7 @@ export const Item = ({ data }: ItemProps) => {
   const { thumbnail, name, position, countries, tags, audio, youtube } = data;
   const countryItems = countriesList.filter((c) => countries.includes(c.code));
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow bg-white">
+    <div className="w-full rounded overflow-hidden shadow bg-white">
       <img className="w-full" src={thumbnail} alt={name} />
       <div className="p-5">
         <div className="font-bold text-xl mb-1">{name}</div>

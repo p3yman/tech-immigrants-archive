@@ -20,7 +20,7 @@ interface FiltersProps {
 
 export const Filters = ({ filters, onChange, onClear }: FiltersProps) => {
   return (
-    <aside className="border-r p-5 w-1/4 min-h-screen bg-gray-50 pt-32 pb-10 flex flex-col gap-6">
+    <aside className="border-r p-5 min-h-screen bg-gray-50 pb-10 flex flex-col gap-6">
       <div>
         <FilterTitle
           title="Country"

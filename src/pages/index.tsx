@@ -77,13 +77,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="container flex gap-8 min-h-screen">
+      <main className="flex min-h-screen pt-24 flex-col sm:flex-row">
         <Filters
           filters={{ countries, positions, tags, withAudio }}
           onChange={onChangeFilter}
           onClear={onClearFilter}
         />
-        <List list={filteredVideos} />
+        <div className="flex-1">
+          <List list={filteredVideos} />
+        </div>
       </main>
     </>
   );

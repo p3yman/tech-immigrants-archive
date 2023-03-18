@@ -3,8 +3,9 @@ import Image from "next/image";
 export const Header = () => {
   return (
     <header className="flex justify-between items-center shadow p-3 pr-6 h-24 fixed w-full bg-white z-50">
-      <div className="logo">
+      <div className="flex gap-2 items-center">
         <Image src="/logo.jpeg" alt="Tech Immigrents" width="64" height="64" />
+        <h1 className="text-2xl font-medium">Tech Immigrants</h1>
       </div>
       <div className="flex gap-2">
         <a
