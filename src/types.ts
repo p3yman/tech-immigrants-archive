@@ -19,5 +19,5 @@ export interface VideoItem {
   youtube: string;
   audio: string | null;
   links?: Links;
-  published_at: string;
+  publish_date: string;
 }

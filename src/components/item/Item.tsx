@@ -1,16 +1,38 @@
 import { countries as countriesList } from "@/data/countries";
 import { VideoItem } from "@/types";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
 
 interface ItemProps {
   data: VideoItem;
 }
 
 export const Item = ({ data }: ItemProps) => {
-  const { thumbnail, name, position, countries, tags, audio, youtube } = data;
+  const {
+    thumbnail,
+    name,
+    position,
+    countries,
+    tags,
+    audio,
+    youtube,
+    publish_date,
+  } = data;
   const countryItems = countriesList.filter((c) => countries.includes(c.code));
+  const isUpcoming = new Date(publish_date) > new Date();
+
   return (
     <div className="w-full rounded overflow-hidden shadow bg-white">
-      <img className="w-full" src={thumbnail} alt={name} />
+      <div className="w-full relative">
+        <img className="w-full" src={thumbnail} alt={name} />
+        {isUpcoming && (
+          <span className="absolute top-2 left-2 rounded bg-red-500 text-white px-2 py-1 text-sm">
+            Upcoming {dayjs(publish_date).fromNow()}
+          </span>
+        )}
+      </div>
       <div className="p-5">
         <div className="font-bold text-xl mb-1">{name}</div>
         <p className="text-gray-500 text-base mb-3">{position}</p>
