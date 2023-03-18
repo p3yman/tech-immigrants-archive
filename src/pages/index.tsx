@@ -35,20 +35,27 @@ export default function Home() {
   }, [clearCountries, clearPositions, clearTags]);
 
   const filterVideos = useCallback(() => {
-    const filtered = videos.filter((video) => {
-      const hasPosition =
-        positions.length === 0 || positions.includes(video.position);
-      const hasTag =
-        tags.length === 0 || tags.some((tag) => video.tags.includes(tag));
-      const hasCountry =
-        countries.length === 0 ||
-        countries.some((country) =>
-          video.countries.includes(country as Country)
-        );
-      const hasAudio = !withAudio || (withAudio && video.audio !== null);
+    const filtered = videos
+      .filter((video) => {
+        const hasPosition =
+          positions.length === 0 || positions.includes(video.position);
+        const hasTag =
+          tags.length === 0 || tags.some((tag) => video.tags.includes(tag));
+        const hasCountry =
+          countries.length === 0 ||
+          countries.some((country) =>
+            video.countries.includes(country as Country)
+          );
+        const hasAudio = !withAudio || (withAudio && video.audio !== null);
 
-      return hasPosition && hasTag && hasCountry && hasAudio;
-    });
+        return hasPosition && hasTag && hasCountry && hasAudio;
+      })
+      .sort((a, b) => {
+        const dateA = new Date(a.publish_date);
+        const dateB = new Date(b.publish_date);
+
+        return dateB.getTime() - dateA.getTime();
+      });
 
     setFilteredVideos(filtered);
   }, [positions, tags, countries, withAudio]);
