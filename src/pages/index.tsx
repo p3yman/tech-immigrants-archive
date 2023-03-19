@@ -41,7 +41,7 @@ export default function Home() {
         const matchesQuery =
           !search || video.name.toLowerCase().includes(search.toLowerCase());
         const hasPosition =
-          positions.length === 0 || positions.includes(video.position);
+          positions.length === 0 || positions.includes(video.position || "");
         const hasTag =
           tags.length === 0 || tags.some((tag) => video.tags.includes(tag));
         const hasCountry =
