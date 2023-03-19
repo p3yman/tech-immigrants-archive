@@ -1,3 +1,5 @@
+![TechImmigrants](https://yt3.googleusercontent.com/xGHYSzqUtDm8bABVzPquajUVOxsiW7UU6mq1qy6lJIDuj9WMOAbmW2V7U3E3yzdgMofgfQGj=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj)
+
 # TechImmigrants Archive
 
 This repository contains a website that provides an archive of videos from the [TechImmigrants YouTube channel](https://www.youtube.com/@TechImmigrants). The archive is intended to provide an easily accessible and searchable repository of videos for people who need faster access.
