@@ -14,4 +14,4 @@ We welcome contributions from anyone who is interested in helping to improve the
 
 ## License
 
-The TechImmigrants Archive is licensed under the [MIT License](LICENSE). This means that you are free to use, modify, and distribute the code as long as you include the original license and attribution to the project.
+The TechImmigrants Archive is licensed under the [GNU GENERAL PUBLIC LICENSE](LICENSE.md). This means that you are free to use, modify, and distribute the code as long as you include the original license and attribution to the project.
