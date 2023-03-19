@@ -12,7 +12,7 @@ We welcome contributions from anyone who is interested in helping to improve the
 
 - **Submitting pull requests**: If you have a bug fix or new feature that you'd like to contribute, please feel free to [submit a pull request](https://github.com/p3yman/tech-immigrants-archive/pulls) and we'll review it as soon as we can.
 
-- **Adding video data**: If you have information about additional TechImmigrants videos that are not currently included in the archive, please feel free to submit a pull request with the updated video data.
+- **Adding video data**: If you have information about additional TechImmigrants videos that are not currently included in the archive, please feel free to submit a pull request with the updated video data. Please consider that any position, country, or tag should first be inserted in the related list in the `data` folder. Then you'll have TypeScript support to make sure the filters would work the best. Also, there is no level on the positions to reduce extra items on the filters.
 
 ## License
 
