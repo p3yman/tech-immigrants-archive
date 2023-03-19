@@ -27,7 +27,7 @@ export const Item = ({ data }: ItemProps) => {
   return (
     <div className="w-full rounded overflow-hidden shadow bg-white">
       <div className="w-full relative">
-        <img className="w-full" src={thumbnail} alt={name} />
+        <Image alt={name} src={thumbnail} width={640} height={320} />
         {isUpcoming && (
           <span className="absolute top-2 left-2 rounded bg-red-500 text-white px-2 py-1 text-sm">
             Upcoming {dayjs(publish_date).fromNow()}

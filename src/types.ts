@@ -14,7 +14,7 @@ export interface VideoItem {
   name: string;
   countries: Country[];
   companies?: string[];
-  position: Position;
+  position: Position | null;
   tags: string[];
   youtube: string;
   audio: string | null;

@@ -24,6 +24,11 @@ export const countries = [
     label: "Canada",
     flag: "🇨🇦",
   },
+  {
+    code: "un",
+    label: "United Nations",
+    flag: "🇺🇳",
+  },
 ] as const;
 
 export type Country = typeof countries[number]["code"];
