@@ -5,7 +5,7 @@ export const videos: VideoItem[] = [
     thumbnail: "https://i.ytimg.com/vi/0LOT-NYCOQc/maxresdefault.jpg",
     name: "لایو مهاجرت کاری محمد کریمی | Sweden | SRE",
     countries: ["un"],
-    position: null,
+    position: "SRE",
     tags: [],
     youtube: "https://www.youtube.com/watch?v=0LOT-NYCOQc",
     audio: null,
