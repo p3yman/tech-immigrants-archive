@@ -7,6 +7,11 @@ export const positions = [
   "Principal Software Engineer",
   "Site Reliability Engineering",
   "Software Engineer",
+  "Product Manager",
+  "Android Developer",
+  "Digital Marketing Manager",
+  "Data Scientist",
+  "Student"
 ] as const;
 
 export type Position = typeof positions[number];
