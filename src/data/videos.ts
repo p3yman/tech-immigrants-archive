@@ -83,7 +83,7 @@ export const videos: VideoItem[] = [
   },
   {
     thumbnail: "https://i.ytimg.com/vi/n3_jf_JwGlc/maxresdefault.jpg",
-    name: "مهاجرت کاری | Malaysia | Technical Team Lead",
+    name: "Malaysia | Technical Team Lead |  مهاجرت کاری مهرشاد جلیل مسیر ",
     countries: ["my"],
     position: null,
     tags: [],
@@ -105,7 +105,7 @@ export const videos: VideoItem[] = [
     thumbnail: "https://i.ytimg.com/vi/hqfsRyaCJdw/maxresdefault.jpg",
     name: "مهاجرت تحصیلی | استرالیا، آلمان، نروژ و فنلاند | Research scientist",
     countries: ["de", "no", "fe", "au"],
-    position: null,
+    position: "Student",
     tags: [],
     youtube: "https://www.youtube.com/watch?v=hqfsRyaCJdw",
     audio: null,
@@ -264,8 +264,8 @@ export const videos: VideoItem[] = [
   {
     thumbnail: "https://i.ytimg.com/vi/IHqi2IieC5E/maxresdefault.jpg",
     name: "لایو تجربه مهاجرت تحصیلی | آمریکا | Machine Learning Tech Lead",
-    countries: ["un"],
-    position: null,
+    countries: ["us"],
+    position: "Student",
     tags: [],
     youtube: "https://www.youtube.com/watch?v=IHqi2IieC5E",
     audio: null,
@@ -274,8 +274,8 @@ export const videos: VideoItem[] = [
   {
     thumbnail: "https://i.ytimg.com/vi/vlzF8Wgbjpg/maxresdefault.jpg",
     name: "Amazon| مهاجرت تحصیلی| آمریکا",
-    countries: ["un"],
-    position: null,
+    countries: ["us"],
+    position: "Student",
     tags: [],
     youtube: "https://www.youtube.com/watch?v=vlzF8Wgbjpg",
     audio: null,
@@ -944,7 +944,7 @@ export const videos: VideoItem[] = [
   {
     thumbnail: "https://i.ytimg.com/vi/miZR20ObC_I/maxresdefault.jpg",
     name: "وبینار چهارم تجربه مهاجرت به ایتالیا از طریق ویزای تحصیلی Italy Student Visa",
-    countries: ["un"],
+    countries: ["it"],
     position: "Student",
     tags: [],
     youtube: "https://www.youtube.com/watch?v=miZR20ObC_I",
@@ -954,7 +954,7 @@ export const videos: VideoItem[] = [
   {
     thumbnail: "https://i.ytimg.com/vi/119cLBcq5Sw/maxresdefault.jpg",
     name: "وبینار سوم : تجربه مهاجرت به کانادا از طریق ویزای تحصیلی",
-    countries: ["un"],
+    countries: ["ca"],
     position: "Student",
     tags: [],
     youtube: "https://www.youtube.com/watch?v=119cLBcq5Sw",
