@@ -70,6 +70,11 @@ export const countries = [
     flag: "🇺🇦",
   },
   {
+    code:"it",
+    label: "Italy",
+    flag: "🇮🇹",
+  },
+  {
     code: "un",
     label: "United Nations",
     flag: "🇺🇳",
