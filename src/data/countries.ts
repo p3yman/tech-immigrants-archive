@@ -25,6 +25,11 @@ export const countries = [
     flag: "🇨🇦",
   },
   {
+    code: "se",
+    label: "Sweden",
+    flag: "🇸🇪",
+  },
+  {
     code: "un",
     label: "United Nations",
     flag: "🇺🇳",
