@@ -13,7 +13,7 @@ interface ItemProps {
 export const Item = ({ data }: ItemProps) => {
     const { thumbnail, name, position, countries, tags, audio, youtube, publish_date } = data;
     const countryItems = countriesList.filter((c) => countries.includes(c.code));
-    const isUpcomin = new Date(publish_date) > new Date();
+    const isUpcoming = new Date(publish_date) > new Date();
 
     return (
         <div className="w-full rounded overflow-hidden shadow bg-white">
