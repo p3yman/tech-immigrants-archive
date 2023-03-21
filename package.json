@@ -3,17 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "next start",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext .tsx,.ts,.js && prettier --check .",
+    "lint:fix": "eslint . --ext .tsx,.ts,.js --fix && prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/node": "18.15.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
     "dayjs": "^1.11.7",
-    "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
     "react": "18.2.0",
@@ -24,7 +27,22 @@
     "@faker-js/faker": "^7.6.0",
     "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.14",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": ">=10",
     "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
+    "prettier-plugin-tailwindcss": "^0.2.5",
     "tailwindcss": "^3.2.7"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write -u"
+    ],
+    "!**/*.{js,ts,jsx,tsx}": "prettier --write -u"
   }
 }

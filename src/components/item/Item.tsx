@@ -1,8 +1,9 @@
-import Image from "next/image";
-import { countries as countriesList } from "@/data/countries";
-import { VideoItem } from "@/types";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import Image from 'next/image';
+
+import { countries as countriesList } from '@/data/countries';
+import { VideoItem } from '@/types';
 
 dayjs.extend(relativeTime);
 
@@ -11,38 +12,26 @@ interface ItemProps {
 }
 
 export const Item = ({ data }: ItemProps) => {
-  const {
-    thumbnail,
-    name,
-    position,
-    countries,
-    tags,
-    audio,
-    youtube,
-    publish_date,
-  } = data;
+  const { thumbnail, name, position, countries, tags, audio, youtube, publish_date } = data;
   const countryItems = countriesList.filter((c) => countries.includes(c.code));
   const isUpcoming = new Date(publish_date) > new Date();
 
   return (
-    <div className="w-full rounded overflow-hidden shadow bg-white">
-      <div className="w-full relative">
+    <div className="w-full overflow-hidden rounded bg-white shadow">
+      <div className="relative w-full">
         <Image alt={name} src={thumbnail} width={640} height={320} />
         {isUpcoming && (
-          <span className="absolute top-2 left-2 rounded bg-red-500 text-white px-2 py-1 text-sm">
+          <span className="absolute top-2 left-2 rounded bg-red-500 px-2 py-1 text-sm text-white">
             Upcoming {dayjs(publish_date).fromNow()}
           </span>
         )}
       </div>
-      <div className="p-5 min-h-[170px]">
-        <div className="font-bold text-xl mb-1">{name}</div>
-        <p className="text-gray-500 text-base mb-3">{position}</p>
-        <div className="flex gap-1 mb-4">
+      <div className="min-h-[170px] p-5">
+        <div className="mb-1 text-xl font-bold">{name}</div>
+        <p className="mb-3 text-base text-gray-500">{position}</p>
+        <div className="mb-4 flex gap-1">
           {countryItems.map((country) => (
-            <span
-              key={country.code}
-              className="text-sm font-semibold text-gray-700 mr-2"
-            >
+            <span key={country.code} className="mr-2 text-sm font-semibold text-gray-700">
               {country.flag} {country.label}
             </span>
           ))}
@@ -51,28 +40,25 @@ export const Item = ({ data }: ItemProps) => {
           {tags.map((tag) => (
             <span
               key={tag}
-              className="inline-block bg-purple-50 border border-purple-200 text-purple-900 rounded px-2 py-1 text-xs font-semibold mr-2"
+              className="mr-2 inline-block rounded border border-purple-200 bg-purple-50 px-2 py-1 text-xs font-semibold text-purple-900"
             >
               #{tag}
             </span>
           ))}
         </div>
       </div>
-      <footer className="border-t border-gray-100 p-3 flex flex-row-reverse gap-1 justify-between w-full">
+      <footer className="flex w-full flex-row-reverse justify-between gap-1 border-t border-gray-100 p-3">
         <a
           href={youtube}
           target="_blank"
-          className={`flex items-center gap-2 bg-youtube hover:bg-red-600 transition-colors text-white text-gray text-sm py-2 px-4 rounded`}
+          className={`text-gray flex items-center gap-2 rounded bg-youtube py-2 px-4 text-sm text-white transition-colors hover:bg-red-600`}
+          rel="noreferrer"
         >
           <Image src="/youtube.svg" alt="YouTube" width="24" height="24" />
           Watch on YouTube
         </a>
         {audio && (
-          <a
-            href={audio}
-            target="_blank"
-            className={`border text-sm py-2 px-4 rounded`}
-          >
+          <a href={audio} target="_blank" className={`rounded border py-2 px-4 text-sm`} rel="noreferrer">
             Download audio
           </a>
         )}

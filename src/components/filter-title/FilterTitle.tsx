@@ -6,13 +6,10 @@ interface FilterTitleProps {
 
 const FilterTitle = ({ title, showClear, onClear }: FilterTitleProps) => {
   return (
-    <div className="flex justify-between h-5 items-center mb-2">
-      <h3 className="font-medium text-sm text-slate-500">{title}</h3>
+    <div className="mb-2 flex h-5 items-center justify-between">
+      <h3 className="text-sm font-medium text-slate-500">{title}</h3>
       {showClear && onClear && (
-        <button
-          className="font-medium text-sm text-blue-500 transition-colors hover:text-blue-600"
-          onClick={onClear}
-        >
+        <button className="text-sm font-medium text-blue-500 transition-colors hover:text-blue-600" onClick={onClear}>
           Clear
         </button>
       )}
