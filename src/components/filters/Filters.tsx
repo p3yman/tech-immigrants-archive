@@ -23,7 +23,7 @@ interface FiltersProps {
 
 export const Filters = ({ filters, onChange, onClear }: FiltersProps) => {
   return (
-    <aside className="flex flex-col justify-between border-b sm:border-r sm:border-b-0 p-5 sm:min-h-full bg-gray-50 pb-10">
+    <aside className="flex flex-col justify-between border-b bg-gray-50 p-5 pb-10 sm:min-h-full sm:border-r sm:border-b-0">
       <section className="flex flex-col gap-6">
         <div>
           <FilterTitle title="Search by name" onClear={() => onClear('search')} showClear={!!filters.search} />
@@ -90,7 +90,7 @@ export const Filters = ({ filters, onChange, onClear }: FiltersProps) => {
         </div>
       </section>
       <footer>
-        <div className="text-slate-500 text-center mt-3">
+        <div className="mt-3 text-center text-slate-500">
           Made by{' '}
           <a href="https://peyman.me" target="_blank" className="text-blue-500 hover:text-blue-600" rel="noreferrer">
             Peyman
