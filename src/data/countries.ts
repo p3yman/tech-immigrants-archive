@@ -30,6 +30,46 @@ export const countries = [
     flag: "🇸🇪",
   },
   {
+    code: "uk",
+    label: "United Kingdom",
+    flag: "🇬🇧",
+  },
+  {
+    code: "my",
+    label: "Malaysia",
+    flag: "🇲🇾",
+  },
+  {
+    code:"ee",
+    label: "Estonia",
+    flag: "🇪🇪",
+  },
+  {
+    code:"au",
+    label: "Australia",
+    flag: "🇦🇺",
+  },
+  {
+    code: "us",
+    label: "United States",
+    flag: "🇺🇸",
+  },
+  {
+    code:"fe",
+    label: "Finland",
+    flag: "🇫🇮",
+  },
+  {
+    code:"no",
+    label: "Norway",
+    flag: "🇳🇴",
+  },
+  {
+    code:"ua",
+    label: "Ukraine",
+    flag: "🇺🇦",
+  },
+  {
     code: "un",
     label: "United Nations",
     flag: "🇺🇳",
