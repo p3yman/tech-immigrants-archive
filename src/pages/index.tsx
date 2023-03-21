@@ -99,7 +99,7 @@ export default function Home() {
           onChange={onChangeFilter}
           onClear={onClearFilter}
         />
-        <div className="flex-1">
+        <div className="flex-1 ml-80">
           <List list={filteredVideos} />
         </div>
       </main>
