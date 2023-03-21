@@ -1,5 +1,5 @@
-import { Country } from "./data/countries";
-import { Position } from "./data/positions";
+import { Country } from './data/countries';
+import { Position } from './data/positions';
 
 export interface Links {
   email?: string;

@@ -1,17 +1,16 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import Head from "next/head";
+import Head from 'next/head';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { Header } from "@/components/header/Header";
-import { categories, Filters } from "@/components/filters/Filters";
-import { List } from "@/components/list/List";
-
-import { videos } from "@/data/videos";
-import { useToggleArray } from "@/hooks/useToggleArray";
-import { useToggleBoolean } from "@/hooks/useToggleBoolean";
-import { Country } from "@/data/countries";
+import { Filters, categories } from '@/components/filters/Filters';
+import { Header } from '@/components/header/Header';
+import { List } from '@/components/list/List';
+import { Country } from '@/data/countries';
+import { videos } from '@/data/videos';
+import { useToggleArray } from '@/hooks/useToggleArray';
+import { useToggleBoolean } from '@/hooks/useToggleBoolean';
 
 export default function Home() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [filteredVideos, setFilteredVideos] = useState(videos);
   const [countries, toggleCountry, clearCountries] = useToggleArray([]);
   const [positions, togglePosition, clearPositions] = useToggleArray([]);
@@ -38,18 +37,11 @@ export default function Home() {
   const filterVideos = useCallback(() => {
     const filtered = videos
       .filter((video) => {
-        const matchesQuery =
-          !search || video.name.toLowerCase().includes(search.toLowerCase());
-        const hasPosition =
-          positions.length === 0 ||
-          (video.position && positions.includes(video.position));
-        const hasTag =
-          tags.length === 0 || tags.some((tag) => video.tags.includes(tag));
+        const matchesQuery = !search || video.name.toLowerCase().includes(search.toLowerCase());
+        const hasPosition = positions.length === 0 || (video.position && positions.includes(video.position));
+        const hasTag = tags.length === 0 || tags.some((tag) => video.tags.includes(tag));
         const hasCountry =
-          countries.length === 0 ||
-          countries.some((country) =>
-            video.countries.includes(country as Country)
-          );
+          countries.length === 0 || countries.some((country) => video.countries.includes(country as Country));
         const hasAudio = !withAudio || (withAudio && video.audio !== null);
 
         return matchesQuery && hasPosition && hasTag && hasCountry && hasAudio;
@@ -69,24 +61,24 @@ export default function Home() {
   }, [filterVideos]);
 
   const onChangeFilter = (type: categories, value?: string) => {
-    if (type === "withAudio") {
+    if (type === 'withAudio') {
       toggleWithAudio();
     }
 
-    if (type === "search") {
-      setSearch(value || "");
+    if (type === 'search') {
+      setSearch(value || '');
     } else if (value) {
       arrayToggles[type](value);
     }
   };
 
   const onClearFilter = (type: categories) => {
-    if (type === "withAudio") {
+    if (type === 'withAudio') {
       return;
     }
 
-    if (type === "search") {
-      setSearch("");
+    if (type === 'search') {
+      setSearch('');
     } else {
       arrayClearToggles[type]();
     }
@@ -96,10 +88,7 @@ export default function Home() {
     <>
       <Head>
         <title>Tech Immigrants Archive</title>
-        <meta
-          name="description"
-          content="Tech Immigrants YouTube Videos Archive"
-        />
+        <meta name="description" content="Tech Immigrants YouTube Videos Archive" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

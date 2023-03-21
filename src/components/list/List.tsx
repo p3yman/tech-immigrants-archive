@@ -1,5 +1,6 @@
-import { VideoItem } from "@/types";
-import { Item } from "../item/Item";
+import { VideoItem } from '@/types';
+
+import { Item } from '../item/Item';
 
 interface VideosProps {
   list: VideoItem[];

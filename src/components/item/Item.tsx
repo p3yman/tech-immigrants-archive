@@ -1,8 +1,9 @@
-import Image from "next/image";
-import { countries as countriesList } from "@/data/countries";
-import { VideoItem } from "@/types";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import Image from 'next/image';
+
+import { countries as countriesList } from '@/data/countries';
+import { VideoItem } from '@/types';
 
 dayjs.extend(relativeTime);
 
@@ -11,16 +12,7 @@ interface ItemProps {
 }
 
 export const Item = ({ data }: ItemProps) => {
-  const {
-    thumbnail,
-    name,
-    position,
-    countries,
-    tags,
-    audio,
-    youtube,
-    publish_date,
-  } = data;
+  const { thumbnail, name, position, countries, tags, audio, youtube, publish_date } = data;
   const countryItems = countriesList.filter((c) => countries.includes(c.code));
   const isUpcoming = new Date(publish_date) > new Date();
 
@@ -39,10 +31,7 @@ export const Item = ({ data }: ItemProps) => {
         <p className="text-gray-500 text-base mb-3">{position}</p>
         <div className="flex gap-1 mb-4">
           {countryItems.map((country) => (
-            <span
-              key={country.code}
-              className="text-sm font-semibold text-gray-700 mr-2"
-            >
+            <span key={country.code} className="text-sm font-semibold text-gray-700 mr-2">
               {country.flag} {country.label}
             </span>
           ))}
@@ -63,16 +52,13 @@ export const Item = ({ data }: ItemProps) => {
           href={youtube}
           target="_blank"
           className={`flex items-center gap-2 bg-youtube hover:bg-red-600 transition-colors text-white text-gray text-sm py-2 px-4 rounded`}
+          rel="noreferrer"
         >
           <Image src="/youtube.svg" alt="YouTube" width="24" height="24" />
           Watch on YouTube
         </a>
         {audio && (
-          <a
-            href={audio}
-            target="_blank"
-            className={`border text-sm py-2 px-4 rounded`}
-          >
+          <a href={audio} target="_blank" className={`border text-sm py-2 px-4 rounded`} rel="noreferrer">
             Download audio
           </a>
         )}

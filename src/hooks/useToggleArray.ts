@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export const useToggleArray = (
-  initialArray: string[] = []
-): [string[], (key: string) => void, () => void] => {
+export const useToggleArray = (initialArray: string[] = []): [string[], (key: string) => void, () => void] => {
   const [array, setArray] = useState(initialArray);
 
   const toggleItem = (key: string) => {

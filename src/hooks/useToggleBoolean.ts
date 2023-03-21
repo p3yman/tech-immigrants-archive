@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export const useToggleBoolean = (initialValue: boolean = false) => {
+export const useToggleBoolean = (initialValue = false) => {
   const [value, setValue] = useState(initialValue);
 
   const toggleValue = () => {
