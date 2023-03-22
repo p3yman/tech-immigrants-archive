@@ -1,3 +1,29 @@
-export const tags = ['JavaScript', 'React', 'Vue', 'Java', 'C#', '.Net'] as const;
+export const tags = [
+  'JavaScript',
+  'TypeScript',
+  'Node.js',
+  'NestJs',
+  'React',
+  'Vue',
+  'Java',
+  'C#',
+  '.Net',
+  'SRE',
+  'DevOps',
+  'IT Operations',
+  'Scalability',
+  'Software Developer',
+  'Software Engineer',
+  'Project Management',
+  'Software Planning',
+  'Solution Architecture',
+  'Software Architecture',
+  'IT Strategy',
+  'Interview Tips',
+  'Team lead',
+  'HR',
+  'Tech recruiter',
+  'Student',
+] as const;
 
 export type Tag = (typeof tags)[number];
