@@ -1,7 +1,7 @@
 export const tags = [
   'JavaScript',
   'TypeScript',
-  'NodeJS',
+  'Node.js',
   'NestJs',
   'React',
   'Vue',
@@ -12,18 +12,18 @@ export const tags = [
   'DevOps',
   'IT Operations',
   'Scalability',
-  'Software Development',
+  'Software Developer',
   'Software Engineer',
   'Project Management',
   'Software Planning',
   'Solution Architecture',
   'Software Architecture',
   'IT Strategy',
-  'Interview',
+  'Interview Tips',
   'Team lead',
   'HR',
   'Tech recruiter',
-  'educational',
+  'Student',
 ] as const;
 
 export type Tag = (typeof tags)[number];
