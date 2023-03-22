@@ -40,7 +40,7 @@ export const Item = ({ data }: ItemProps) => {
           {tags?.map((tag) => (
             <span
               key={tag}
-              className="mr-2 mb-3 inline-block rounded border border-purple-200 bg-purple-50 px-2 py-1 text-xs font-semibold text-purple-900"
+              className="m-2 inline-block rounded border border-purple-200 bg-purple-50 px-2 py-1 text-xs font-semibold text-purple-900"
             >
               #{tag}
             </span>
