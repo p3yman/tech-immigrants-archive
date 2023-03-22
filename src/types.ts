@@ -1,5 +1,6 @@
 import { Country } from './data/countries';
 import { Position } from './data/positions';
+import { Tag } from './data/tags';
 
 export interface Links {
   email?: string;
@@ -15,7 +16,7 @@ export interface VideoItem {
   countries: Country[];
   companies?: string[];
   position: Position | null;
-  tags: string[];
+  tags: Tag[] | null;
   youtube: string;
   audio: string | null;
   links?: Links;

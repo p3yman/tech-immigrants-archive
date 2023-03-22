@@ -1,5 +1,7 @@
+import { Tag as TagsType } from '@/data/tags';
+
 interface TagProps {
-  label: string;
+  label: TagsType;
   value: string;
   checked: boolean;
   onChange: (checked: boolean) => void;
