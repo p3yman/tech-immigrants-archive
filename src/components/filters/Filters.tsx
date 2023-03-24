@@ -23,7 +23,7 @@ interface FiltersProps {
 
 export const Filters = ({ filters, onChange, onClear }: FiltersProps) => {
   return (
-    <aside className="flex flex-col justify-between border-b bg-gray-50 p-5 pb-10 sm:min-h-full sm:border-r sm:border-b-0">
+    <aside className="flex w-80 flex-col justify-between border-b bg-gray-50 p-5 pb-10 sm:min-h-full sm:border-r sm:border-b-0">
       <section className="flex flex-col gap-6">
         <div>
           <FilterTitle title="Search by name" onClear={() => onClear('search')} showClear={!!filters.search} />
@@ -65,7 +65,7 @@ export const Filters = ({ filters, onChange, onClear }: FiltersProps) => {
 
         <div>
           <FilterTitle title="Tags" onClear={() => onClear('tag')} showClear={filters.tags.length > 0} />
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-2">
             {tags.map((tag) => {
               return (
                 <Tag
