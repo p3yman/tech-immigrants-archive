@@ -15,14 +15,13 @@ export const tags = [
   'Software Developer',
   'Software Engineer',
   'Project Management',
-  'Software Planning',
   'Solution Architecture',
   'Software Architecture',
   'IT Strategy',
   'Interview Tips',
   'Team lead',
   'HR',
-  'Tech recruiter',
+  'Tech Recruiter',
   'Student',
 ] as const;
 
