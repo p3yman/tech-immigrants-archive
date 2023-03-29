@@ -5,6 +5,7 @@ import { Filters, categories } from '@/components/filters/Filters';
 import { Header } from '@/components/header/Header';
 import { List } from '@/components/list/List';
 import { Country } from '@/data/countries';
+import { Tag } from '@/data/tags';
 import { videos } from '@/data/videos';
 import { useToggleArray } from '@/hooks/useToggleArray';
 import { useToggleBoolean } from '@/hooks/useToggleBoolean';
@@ -41,7 +42,7 @@ export default function Home() {
       .filter((video) => {
         const matchesQuery = !search || video.name.toLowerCase().includes(search.toLowerCase());
         const hasPosition = positions.length === 0 || (video.position && positions.includes(video.position));
-        const hasTag = tags.length === 0 || tags.some((tag) => video.tags.includes(tag));
+        const hasTag = tags.length === 0 || tags.some((tag) => video.tags?.includes(tag as Tag));
         const hasCountry =
           countries.length === 0 || countries.some((country) => video.countries.includes(country as Country));
         const hasAudio = !withAudio || (withAudio && video.audio !== null);

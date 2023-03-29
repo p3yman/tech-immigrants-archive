@@ -65,7 +65,7 @@ export const Filters = ({ filters, onChange, onClear }: FiltersProps) => {
 
         <div>
           <FilterTitle title="Tags" onClear={() => onClear('tag')} showClear={filters.tags.length > 0} />
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-2">
             {tags.map((tag) => {
               return (
                 <Tag
