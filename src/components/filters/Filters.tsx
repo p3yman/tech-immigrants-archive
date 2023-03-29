@@ -23,7 +23,7 @@ interface FiltersProps {
 
 export const Filters = ({ filters, onChange, onClear }: FiltersProps) => {
   return (
-    <aside className="fixed flex h-full flex-col justify-between overflow-scroll border-b bg-gray-50 p-5 pb-10 sm:min-h-full sm:border-r sm:border-b-0">
+    <aside className="sm:sattic fixed flex h-full flex-col justify-between overflow-scroll border-b bg-gray-50 p-5 pb-10 sm:min-h-full sm:overflow-auto sm:border-r sm:border-b-0">
       <section className="flex flex-col gap-6">
         <div>
           <FilterTitle title="Search by name" onClear={() => onClear('search')} showClear={!!filters.search} />
