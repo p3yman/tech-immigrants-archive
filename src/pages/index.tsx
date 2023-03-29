@@ -17,6 +17,8 @@ export default function Home() {
   const [positions, togglePosition, clearPositions] = useToggleArray([]);
   const [tags, toggleTag, clearTags] = useToggleArray([]);
   const [withAudio, toggleWithAudio] = useToggleBoolean(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSmSize, setIsSmSize] = useState(false);
 
   const arrayToggles = useMemo(() => {
     return {
@@ -84,6 +86,21 @@ export default function Home() {
       arrayClearToggles[type]();
     }
   };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // Check if the screen size is smaller than 640px and update the state
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setIsSmSize(true);
+      } else {
+        setIsSmSize(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <>
@@ -93,14 +110,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <main className="flex min-h-screen flex-col pt-36 sm:flex-row sm:pt-24">
-        <Filters
-          filters={{ search, countries, positions, tags, withAudio }}
-          onChange={onChangeFilter}
-          onClear={onClearFilter}
-        />
-        <div className="flex-1">
+      <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <main className="flex flex-col sm:flex-row sm:pt-6 lg:pt-36">
+        <div className={`sm:w-80 ${isSmSize && !isMenuOpen ? 'hidden' : 'static'} ${isMenuOpen ? ' z-40 mt-10 ' : ''}`}>
+          <div className={`fixed z-10 w-full bg-white sm:relative sm:z-auto sm:w-auto sm:bg-transparent `}>
+            <Filters
+              filters={{ search, countries, positions, tags, withAudio }}
+              onChange={onChangeFilter}
+              onClear={onClearFilter}
+            />
+          </div>
+        </div>
+        <div className={`order-1 flex-1  ${isMenuOpen ? 'z-0' : 'z-40 pt-10'}`}>
           <List list={filteredVideos} />
         </div>
       </main>
