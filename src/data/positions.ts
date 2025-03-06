@@ -12,6 +12,17 @@ export const positions = [
   'Digital Marketing Manager',
   'Data Scientist',
   'Student',
+  'ML Developer',
+  'UI/UX Designer',
+  'Security Engineering',
+  'Network Engineer',
+  'DevOps Engineer',
+  'SEO Specialist',
+  'Product Owner',
+  'IOS Developer',
+  'System Administrator',
+  'Game Engineer',
+  'Game Artist',
 ] as const;
 
 export type Position = (typeof positions)[number];

@@ -7,6 +7,10 @@ export const tags = [
   'Vue',
   'Java',
   'C#',
+  'php',
+  'ruby',
+  'python',
+  'golang',
   '.Net',
   'SRE',
   'DevOps',
@@ -23,6 +27,12 @@ export const tags = [
   'HR',
   'Tech Recruiter',
   'Student',
+  'Product Manager',
+  'UI/UX Designer',
+  'Design',
+  'Data Engineer',
+  'SEO',
+  'linux',
 ] as const;
 
 export type Tag = (typeof tags)[number];

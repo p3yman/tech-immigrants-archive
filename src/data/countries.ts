@@ -50,6 +50,11 @@ export const countries = [
     flag: '🇦🇺',
   },
   {
+    code: 'at',
+    label: 'Austria',
+    flag: '🇦🇹',
+  },
+  {
     code: 'us',
     label: 'United States',
     flag: '🇺🇸',
@@ -73,6 +78,51 @@ export const countries = [
     code: 'un',
     label: 'United Nations',
     flag: '🇺🇳',
+  },
+  {
+    code: 'es',
+    label: 'Spain',
+    flag: '🇪🇸',
+  },
+  {
+    code: 'dk',
+    label: 'Denmark',
+    flag: '🇩🇰',
+  },
+  {
+    code: 'gb',
+    label: 'England',
+    flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+  },
+  {
+    code: 'it',
+    label: 'Italy',
+    flag: '🇮🇹',
+  },
+  {
+    code: 'pt',
+    label: 'Portugal',
+    flag: '🇵🇹',
+  },
+  {
+    code: 'th',
+    label: 'Thailand',
+    flag: '🇹🇭',
+  },
+  {
+    code: 'be',
+    label: 'Belgium',
+    flag: '🇧🇪',
+  },
+  {
+    code: 'fr',
+    label: 'France',
+    flag: '🇫🇷',
+  },
+  {
+    code: 'ch',
+    label: 'Switzerland',
+    flag: '🇨🇭',
   },
 ] as const;
 
